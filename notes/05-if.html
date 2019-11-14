@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>PHP - Conditionnelle IF</title>
+    <link rel="stylesheet" href="css/template.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Diagramme (IF)</legend>
+        <img src="img/if.png" alt="">
+    </fieldset>
+    <fieldset>
+        <legend>Principe</legend>
+        <p>L’instruction if(){} est la structure de test la plus basique. Elle permet d’exécuter une suite d’instructions en fonction d’une condition. La condition entre parenthèses est évaluée et les instructions situées entre les accolades sont exécutées seulement si l’évaluation aboutit à VRAI (TRUE)</p>
+        <p><b>Syntaxe:</b></p>
+        <pre>
+            if(expression) {
+                instruction;
+            }
+        </pre>
+        <p><b>Exemple:</b></p>
+        <pre>
+            if ($a > $b) {
+              echo 'a est plus grand que b';
+            }
+        </pre>
+        <p>La condition peut être complexe. Par exemple pour tester si l'âge d'une personne est compris entre 18 et 35 ans. Il est possible de combiner les deux expressions grâce à l’opérateur && pour en faire une expression unique qui ne renverra TRUE que si les deux composantes renvoient TRUE</p>
+        <pre>
+            $age = 25;
+            if($age &gt; 18 && $age &lt; 35) {
+                 echo 'Votre profil est : jeune adulte';
+            }
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>Diagramme (IF ELSE)</legend>
+        <img src="img/else.png" alt="">
+    </fieldset>
+    <fieldset>
+        <legend>Principe</legend>
+        <p>Lorsque vous voulez exécuter une instruction si une condition est remplie, et une autre instruction si cette condition n'est pas remplie vous devez ajouter une structure else{} après le if().</p>
+        <p><b>Syntaxe:</b></p>
+        <pre>
+            if(condition){
+                instructions si la condition est vérifiée.
+            }
+            else{
+                instructions si la condition n’est pas vérifiée.
+            }
+        </pre>
+        <p><b>Exemple:</b></p>
+        <pre>
+            $temps = 'moche';
+            if($temps == 'ensoleillé'){
+                echo 'Il fait beau';
+            }
+            else{
+                echo 'Il ne fait pas beau';
+            }
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>Exemple avec du HTML et plusieurs délimiteurs</legend>
+        <pre>
+            &lt;?php if (condition): ?&gt;
+                Code HTML si la condition est vraie
+            &lt;?php else: ?&gt;
+                Code HTML si la condition est fausse
+            &lt;?php endif ?&gt;
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>IF ELSEIF ELSE</legend>
+        <img src="img/elseif.png" alt="">
+    </fieldset>
+</body>
+
+</html>

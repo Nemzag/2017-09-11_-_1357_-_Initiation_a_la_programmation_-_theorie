@@ -1,0 +1,351 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+&nbsp;&nbsp;&nbsp;&nbsp;<meta charset="UTF-8">
+&nbsp;&nbsp;&nbsp;&nbsp;<meta name="viewport"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+&nbsp;&nbsp;&nbsp;&nbsp;<meta http-equiv="X-UA-Compatible" content="ie=edge">
+&nbsp;&nbsp;&nbsp;&nbsp;<title>Document</title>
+</head>
+<body>
+<code>
+<h1>01. Output :</h1>
+echo "Script serveur: $version"; //double guillemet affiche la valeur
+<br>
+echo 'Script serveur: $version'; //simple apostrophe affiche le nom
+<br>
+echo 'Script serveur:' .$version; //donc on ajoute un point (concatener) et sa fonctionne
+<br>
+echo ('Hello World'); // Pas de parentheses car ECHO n'est pas une FONCTION, c'est une structure du langage, PHP est composé de structure de langage (IF, FOR) & de fonctions et de mots clés. Les parentheses ont les indique pour les fonctions. PHP est permissif, il vous donne la possibilité d'écrire de plusieurs façon differentes.
+<br>
+<title><?php echo $titre ?></title> <!-- Variable pour le titre avec un delimiteur "?php echo" ou "?=". -->
+
+print '<h2>Scripts Serveurs</h2>'; // apostrophe
+<br>
+print "<h2>Scripts Serveurs</h2>"; // guillemet
+<br>
+print ("<h2>Scripts Serveurs</h2>"); // print est une structure du langage, utilisé des parentheses est incorrect.
+
+<p>gettype($variable); // gettype est une fonction.</p>
+
+<h1>02. SSI : Server Side Include :</h1>
+<p>
+include 'includes/header.inc.php';
+</p>
+<p>
+include_once 'includes/header.inc.php';
+</p>
+<p>
+require 'includes/header.inc.php';
+</p>
+<p>
+require_once 'includes/header.inc.php
+</p>
+
+<h1>03. Les variables - introduction</h1>
+// Déclaration et affectation d'une variable
+
+<p>
+$name = 'John Doe'; // type caractere : STRING ; apostrophe chaine de caractere
+</p>
+<p>
+$age = 45; // type numerique : INTEGER, donc pas de delimiteur type apostrophe (nom) ou guillemet (valeur)
+</p>
+<p>
+$dead = true; // type OUI ou NON ! booléenne : BOOLEAN 1 / 0, VRAI / FAUX.
+</p>
+<p>
+$money = 55.60; // type Reel : FLOAT
+</p>
+<p>
+// Les TABLEAUX sont des VARIABLE STRUCTURÉ permettant l'utilisation de traitements et d'affichages particuliers.
+</p>
+<p>
+$blessures = ['Cou', 'Abdomen', 'Tête']; // ARRAY (tableau) nouvelle syntaxe ; Crochet & delimiteur séparé par des virgules. VARIABLE STRUCTURÉ dont les données sont manipulable par FONCTION.
+</p>
+<p>
+$blessures = array('Cou', 'Abdomen', 'Tête'); // ARRAY (tableau) ancienne syntaxe ; Parenthese & delimiteur séparé par des virgules.
+</p>
+<p>
+$bless = 'Cou, Abdomen, Tête';
+</p>
+<p>
+&euro; &euro + ;
+</p>
+
+<p>/*
+Méthode apostrophe : utile pour les OBJECTS.
+<br>
+Comme c'est ECHO il faut baliser, dans ce cas un simple < p > est suffisant. Pour la conformité HTML.
+<br>
+< ne peut etre utilisé dans des cas mathématiques par exemple, il faut la remplacé par une entitée nommé ou numérique
+*/
+<p>
+// var_dump($blessures); // fonction PHP de deboguage
+</p>
+// Nommage et conventions des variables
+<br>
+// Toujours précédé d'un dollar, doit evoqué ce quelle doit contenir.
+<br>
+// Il y a des languages qui necessite var, d'autre string name.
+<br>
+// Peut on utiliser n'importe quel nom ?
+<br>
+// On ne peut pas mettre d'espace, exemple : nom prénom.
+<br>
+// On ne peut pas utiliser les INSTRUCTIONS d'un langage de programmation,
+<br>
+// les ACCENTS sont refusé et interdit.
+<br>
+// L'UNDERSCORE est autorisé.
+<br>
+// Le point est interdit,
+<br>
+// les chiffres peuvent etre utilisé sauf pour le premier caractere d'une variable.
+<br>
+// Espace de nom : [A-Z][a-z][0-9] (expression reguliere ou rationnel) -> case sensitive, sujette à la casse.
+<br>
+// Pas de caractere speciaux +-*/%^ et operateur arhythmetique.
+<br>
+// Pas de chiffre en premiere position.</p>
+
+<h3>Les fonctions et les variables</h3>
+<p>
+var_dump($name, $connect); // ne permet pas de traiter, ne fait qu'afficher. Instruction de déboggage (mode dev).
+</p>
+// typage, le type de la variable float, array, object, integer, string, boolean, null.
+<br>
+// PHP fait du typage dynamique</p>
+
+<p>// instruction de traitement (prod & dev)
+<br>
+// Afficher le type de données
+<p>
+echo gettype($variable);</p>
+</p>
+// Modifier le type de données = transtypage : definir le type
+<p>
+settype($number, 'string');
+</p>
+if (gettype($name) != 'string')
+{
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>vous devez entrer votre nom correctement</p>';
+}
+<br>
+<br>
+echo '<h2>Vérifie automatiquement le type d\'une variable</h2>';
+<br>
+// Testeur de variable automatique & native.
+<br>
+// is_string(var)
+<br>
+// is_float()
+<br>
+// is_int() / is_integer() : fonction alias font la meme chose mais s'écrive differement.
+<br>
+// is_bool() / is_boolean()
+<br>
+// is_object()
+<br>
+// is_array()
+<br>
+// is_null()
+<br>
+// Verifier si $number est bien un chiffre.
+<br>
+// SI dollar number est un chiffre : c'est bien un chiffre;
+<br>
+// Mais comme plus tot nous avions changer le type avec settype on doit le changer encore...
+// Modifier le type de données = transtypage : definir le type.
+<br>
+<p>
+settype($number, 'integer');
+</p>
+echo gettype($number).'<br>';
+<br>
+if (is_integer($number))
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>c\'est bien un chiffre entier</p>';
+<br>	
+}
+<br>
+else
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>ce n\'est pas un chiffre entier</p>';
+<br>
+}
+<br>
+// <b>unset(var)</b> : détruire une variable.
+<br>
+unset($number);
+<br>
+// echo '<p>'.$number.'</p>'; // sert à liberer la memoire. A la fin du script toute les variables sont detruites automatiquement. Mais si la variable est tres lourde il vaut mieux la detruire avant la fin, sa nous permettrais par exemple de detruire une variable d'identification.
+<br>
+// <b>empty(var)</b> : vérifie si une variable est vide.
+<br>
+if (empty($val))  // point d'exclamation devant une fonction égal sont contraire : !empty($...).
+{
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>La variable est vide {empty(...)}</p>';
+}
+// <b>isset(var)</b> : verifie si la variable existe.
+
+<p>
+// Tester si la variable admin n'existe pas.
+</p>
+if(!isset($admin))
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>La variable n\'existe pas {isset(...)}</p>';
+<br>
+}
+
+<h1>05. Les constantes :</h1>
+<p>
+// Déclaration de la constante
+<br>
+// <b>define(..., ...)</b>
+</p>
+
+<p>
+define('DB_CLIENT', 'catalogue'); // toute constante par convention doivent etre ecrite en majuscule. catalogue est la valeur. Syntaxe define(nom constante, valeur constante).
+<br>
+// Convention d'écriture : MAJ et underscore pour les noms de constantes.
+</p>
+$nom = 'pat';
+<br>
+if ($nom == "dom") // = assignation ; == operateur de comparaison
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'pas bon';
+<br>
+}
+<h1>06. Structure conditionnelle</h1>
+<p>
+En plus on soit resident à Namur.
+Version 2
+</p>
+<br>
+$age = 15;
+$localite = 'Namur';
+
+if($localite == 'Namur')
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if($age >= 20) // ne pas oublier d'écrire $ pour la variable
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>Juniors</p>';
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elseif($age >= 14)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>Cadets</p>';
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elseif($age >= 12)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>Minimes</p>';
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>Pas de catégorie</p>';
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+else
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo '<p>Vous devez résider à Namur</p>';
+<br>
+}
+<h1>Menu</h1>
+<p>
+/*
+<br>
+ * Creation d'un menu de navigation permettant via les instructions conditionnelles d'inclure les fichiers correspondants aux pages.
+<br>
+ */
+ </p>
+ <p>
+// Parametre : information qui vont etre traité dans le script. Transmise d'une page web vers un script PHP pour etre manipulé.
+<br>
+// Soite dans l'URL soit en arriere plan.
+</p>
+<p>
+// $page = la variable n'est plus utile, on la remplace par un parametre / query dans les liens.
+</p>
+<p>// NAVBAR
+<br>
+// &nbsp; entité de l'espacement.
+</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="?page=home">Accueil</a>&nbsp;&nbsp; <!-- « ? » indique que l'on reste dans la page en question -->
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="?page=about">A propos de nous</a>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="?page=products">Notre catalogue</a>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="?page=contact">Nous contacter</a>&nbsp;&nbsp;
+
+<p>
+// La page indique des erreurs en dessous des liens et nous allons y remedier. Car le parametre ?page n'est pas definie.
+<br>
+// On écrie isset — Determine si une variable est « SET » et n'est pas « NULL ».
+</p>
+
+<p>
+if(!isset($_GET['page'])) // ! = opposé=  n'existe pas.
+{
+&nbsp;&nbsp;&nbsp;&nbsp;$_GET['page'] = 'home';
+}
+</p>
+<p>
+if($_GET['page'] == 'about') // variable super globale externe, qui s'écrit $_GET['parametre1', "parametre2'] pour les liens $_POST['parametre'] dans les formulaires. Super global car c'est un tableau.
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;require '../includes/about.inc.php';
+<br>
+}
+<br>
+elseif($_GET['page'] == 'products')
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;require '../includes/products.inc.php';
+<br>
+}
+<br>
+elseif($_GET['page'] == 'contact')
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;require '../includes/contact.inc.php';
+<br>
+}
+<br>
+else
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;require '../includes/home.inc.php';
+<br>
+}
+</p>
+</code>
+</body>
+</html>

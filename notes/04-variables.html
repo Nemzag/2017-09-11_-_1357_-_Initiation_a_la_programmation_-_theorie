@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Les variables</title>
+    <link rel="stylesheet" href="css/template.css">
+</head>
+<body>
+    <h1>Les variables</h1>
+    <fieldset>
+        <legend>Principe</legend>
+        <p>Les variables sont destinées à stocker les données qui seront utilisées et pourront être modifiées lors de l’exécution du programme.  Il est important de noter que la plupart du temps les données des variables proviennent de l'extérieur du script (formulaire, base de données, sessions, cookies...)
+            <br> Contrairement à d'autres langages, le PHP n’exige pas la déclaration de type des variables avant leur utilisation. Une variable peut prendre une valeur de chaîne de caractères et, ensuite, être utilisée pour contenir un entier (transtypage automatique).</p>
+        <p>Chaque variable possède un identifiant particulier, qui commence toujours par le caractère dollar ($) suivi du nom de la variable. Les règles de création des noms de variable sont les suivantes :
+            <br> - Le nom commence par un caractère alphabétique, pris dans les ensembles [a-z], [A-Z] ou par le caractère de soulignement.
+            <br> - Les chiffres peuvent être utilisés à l'exception du premier caractère du nom de la variable.
+            <br> - Les noms des variables sont sensibles à la casse.
+            <p>Conventions d'écriture: écrire vos variables en minuscules avec des noms évocateurs en employant le style "camelcase" dans le cas ou une variable nécessite plusieurs mots</p>
+        </p>
+        <pre>
+            $name // valide
+            $01name // invalide
+            $_name // valide
+            $NAME // valide
+            $first name // invalide
+            $first*name // invalide
+            $firstName // valide
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>Les opérateurs d'assignation ou d'affectation</legend>
+        <p>Les opérateurs sont des symboles qui permettent de manipuler des variables. Ils permettent notamment d’effectuer des opérations, d’affecter ou de comparer des valeurs, etc.</p>
+        <p>L’affectation consiste à donner une valeur à une variable. L’affectation se fait à l’aide de l’opérateur = en même temps que la création de la variable.</p>
+        <pre>
+            syntaxe:
+            $mavar = expression;<br>
+            exemples:
+            $name = 'Servais';
+            $age = 25;
+            $connect = TRUE;
+            </pre>
+        <p>En plus du simple opérateur d'affectation, il existe des "opérateurs combinés" pour tous les opérateurs arithmétiques, l'union de tableaux et pour les opérateurs sur les chaînes de caractères. Cela permet d'utiliser la valeur d'une variable dans une expression et d'affecter le résultat de cette expression à cette variable.</p>
+        <pre>
+           $montant = 100;
+           $montant += 21; // affecte la valeur 21 à la variable $montant (correspond à l'instruction $montant = $montant + 21 )
+           
+           <b>Remarque:</b> Pour les opérateurs combinés vous pouvez utiliser tous les opérateurs arithmétiques ou de concaténation
+            $quantite = 10;
+            $quantite -= 2; // Deux produits offerts
+            $quantite // 8
+           
+           $message = 'Erreur de type: ';
+           $message .= 'Passorwd'; // affecte la valeur "Password" à la variable $message (correspond à $message = $message. 'Password')   
+           </pre>
+    </fieldset>
+    <fieldset>
+        <legend>Les opérateurs arithmétiques</legend>
+        <table>
+            <tr>
+                <th>Exemple</th>
+                <th>Nom</th>
+                <th>Résultat</th>
+            </tr>
+            <tr>
+                <td>-$a</td>
+                <td>Négation</td>
+                <td>Opposé de $a</td>
+            </tr>
+            <tr>
+                <td>$a + $b</td>
+                <td>Addition</td>
+                <td>Somme de $a et $b</td>
+            </tr>
+            <tr>
+                <td>$a - $b</td>
+                <td>Soustraction</td>
+                <td>Différence de $a et $b</td>
+            </tr>
+            <tr>
+                <td>$a * $b</td>
+                <td>Multiplication</td>
+                <td>Produit de $a et $b</td>
+            </tr>
+            <tr>
+                <td>$a / $b</td>
+                <td>Division</td>
+                <td>Quotient de $a et $b</td>
+            </tr>
+            <tr>
+                <td>$a % $b</td>
+                <td>Modulo</td>
+                <td>Reste de $a divisé par $b</td>
+            </tr>
+            <tr>
+                <td>$a ** $b</td>
+                <td>Exponentielle</td>
+                <td>Résultat de l'élévation de $a à la puissance $b Introduit en PHP 5.6.</td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Les opérateurs de comparaison</legend>
+        <table class="doctable table">
+            <tr>
+                <th>Exemple</th>
+                <th>Nom</th>
+                <th>Résultat</th>
+            </tr>
+            <tr>
+                <td>$a == $b</td>
+                <td>Egal</td>
+                <td>$a est égal à $b</td>
+            </tr>
+            <tr>
+                <td>$a === $b</td>
+                <td>Identique</td>
+                <td>
+                    $a est égal à $b et qu'ils sont de même type.
+                </td>
+            </tr>
+            <tr>
+                <td>$a != $b</td>
+                <td>Différent</td>
+                <td>si $a est différent de $b
+                </td>
+            </tr>
+            <tr>
+                <td>$a &lt;&gt; $b</td>
+                <td>Différent</td>
+                <td>si $a est différent de $b
+                </td>
+            </tr>
+            <tr>
+                <td>$a !== $b</td>
+                <td>Différent</td>
+                <td>
+                    si $a est différent de $b ou bien s'ils ne sont pas du même type.
+                </td>
+            </tr>
+            <tr>
+                <td>$a &lt; $b</td>
+                <td>Plus petit que</td>
+                <td>si $a est strictement plus petit que $b.</td>
+            </tr>
+            <tr>
+                <td>$a &gt; $b</td>
+                <td>Plus grand</td>
+                <td>si $a est strictement plus grand que $b</td>
+            </tr>
+            <tr>
+                <td>$a &lt;= $b</td>
+                <td>Inférieur ou égal</td>
+                <td>si $a est plus petit ou égal à $b</td>
+            </tr>
+            <tr>
+                <td>$a &gt;= $b</td>
+                <td>Supérieur ou égal</td>
+                <td>si $a est plus grand ou égal à $b</td>
+            </tr>
+            <tr>
+                <td>$a &lt;=&gt; $b</td>
+                <td>Tie Fighter</td>
+                <td>
+                    renvoie 0, -1 ou 1 suivant que $a soit égal, inférieur ou supérieur à $b (disponible depuis PHP 7)
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Opérateurs d'incrémentation et décrémentation</legend>
+        <table>
+            <tr>
+                <th>Exemple</th>
+                <th>Nom</th>
+                <th>Résultat</th>
+            </tr>
+            <tr>
+                <td>++$a</td>
+                <td>Pre-incrémente</td>
+                <td>Incrémente $a de 1, puis retourne $a</td>
+            </tr>
+            <tr>
+                <td>$a++</td>
+                <td>Post-incrémente</td>
+                <td>Retourne $a, puis incrémente $a de 1</td>
+            </tr>
+            <tr>
+                <td>--$a</td>
+                <td>Pré-décrémente</td>
+                <td>Décrémente $a de 1, puis retourne $a</td>
+            </tr>
+            <tr>
+                <td>$a--</td>
+                <td>Post-décrémente</td>
+                <td>Retourne $a, puis décrémente $a de 1</td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Les opérateurs logiques</legend>
+        <p>Les opérateurs logiques vont servir à faire des tests complexes. Ils sont principalement utilisés en combinaison avec certaines structures du langage (if, for, while, etc.) que nous verrons peu après. Ces opérateurs permettent de comparer deux termes et de renvoyer un booléen vrai ou faux (TRUE ou FALSE) selon la véracité de la comparaison.</p>
+        <table>
+            <tr>
+                <th>Exemple</th>
+                <th>Nom</th>
+                <th>Résultat</th>
+            </tr>
+            <tr>
+                <td>$a and $b</td>
+                <td>And (Et)</td>
+                <td>TRUE si $a ET $b valent TRUE</td>
+            </tr>
+            <tr>
+                <td>$a or $b</td>
+                <td>Or (Ou)</td>
+                <td>TRUE si $a OU $b valent TRUE</td>
+            </tr>
+            <tr>
+                <td>$a xor $b</td>
+                <td>XOR</td>
+                <td>TRUE si $a OU $b est TRUE, mais pas les deux en même temps.
+                </td>
+            </tr>
+            <tr>
+                <td>! $a</td>
+                <td>Not (Non)</td>
+                <td>TRUE si $a n'est pas TRUE</td>
+            </tr>
+            <tr>
+                <td>$a &amp;&amp; $b</td>
+                <td>And (Et)</td>
+                <td>TRUE si $a ET $b sont TRUE</td>
+            </tr>
+            <tr>
+                <td>$a || $b</td>
+                <td>Or (Ou)</td>
+                <td>TRUE si $a OU $b est TRUE</td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>La portée des variables</legend>
+        <p>La portée d'une variable dépend du contexte dans lequel la variable est définie. Pour la majorité des variables, la portée concerne la totalité d'un script PHP. Mais, lorsque vous définissez une fonction, la portée d'une variable définie dans cette fonction est locale à la fonction. Par exemple : </p>
+        <pre>
+            $montant = 100;
+            $q = 5;
+            function total(){
+                global $montant, $q;
+                echo $montant * $q;
+            }
+            total();
+        </pre>
+    </fieldset>
+</body>
+
+</html>

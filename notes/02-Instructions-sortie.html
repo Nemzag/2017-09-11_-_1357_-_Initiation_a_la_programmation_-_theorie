@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Instructions de sortie en PHP</title>
+    <link rel="stylesheet" href="css/template.css">
+</head>
+<body>
+<h1>Les instructions de sortie</h1>
+<fieldset>
+    <legend>Afficher du contenu avec echo</legend>
+    <p>echo — Affiche une chaîne de caractères</p>
+    <p>echo n'est pas vraiment une fonction (c'est techniquement une structure du langage), cela fait que vous n'êtes
+        pas obligé d'utiliser des parenthèses. echo (contrairement à d'autres structures de langage) ne se comporte pas
+        comme une fonction, il ne peut donc pas être utilisé dans le contexte d'une fonction. De même, si vous voulez
+        passer plusieurs paramètres à echo, les paramètres ne doivent pas être entourés de parenthèses.</p>
+    <p>Quelques exemples avec des simple quotes</p>
+    <p>
+    <pre>
+                echo '&lt;h1>IEPSCF-NAMUR&lt;/h1>';// Commentaire mono-ligne
+                echo 'l\'Etablissement propose plus de 100 formations';
+                echo '&lt;br>';
+                echo "l'Etablissement propose plus de 100 formations";
+                echo "il a dit: \"j'aime le Web\"";
+                echo '&lt;br>';
+            </pre>
+    <p>Les guillemets simples annulent le remplacement des variables. Vous devez les concatener avec l'opérateur de
+        concaténation point(.)</p>
+    <p>
+    <pre>
+                $name = 'Sophie'; // Déclaration et affectation de la variable
+                echo 'Bienvenue '.$name.' dans votre panier'; // Substitution (utilisation) de la variable
+            </pre>
+    <p>Quelques exemples avec des double quotes</p>
+    <pre>
+            echo "l'Etablissement propose plus de 100 formations";
+            echo "Bienvenue $name dans votre panier"; // Remplacement de la variable sans concaténation
+        </pre>
+    <p>echo dispose aussi d'une version courte, où vous pouvez faire suivre la balise PHP ouvrante d'un signe égal
+        (=).</p>
+    <p>Exemple</p>
+
+    <pre>
+                &lt;?php
+                $name = 'John Doe';
+                ...
+                ...
+                ?>
+                &lt;h3>IEPSCF&lt;/h3>
+                &lt;p>Enseignant: <b>&lt;?=$name?></b>&lt;/p>
+    </pre>
+
+</fieldset>
+<fieldset>
+    <legend>Afficher du contenu avec print</legend>
+    <p>print — Affiche une chaîne de caractères</p>
+    <p>Tout comme echo, print n'est pas une fonction et ne nécessite pas de parenthèses</p>
+    <p>Quelques exemples</p>
+    <pre>
+        print '&lt;h1>IEPSCF-NAMUR&lt;/h1>';
+        print "&lt;h1>IEPSCF-NAMUR&lt;/h1>";
+        print "Bienvenue $name dans votre panier";
+    </pre>
+</fieldset>
+</body>
+
+</html>

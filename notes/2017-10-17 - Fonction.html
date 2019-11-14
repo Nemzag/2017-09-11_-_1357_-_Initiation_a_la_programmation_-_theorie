@@ -1,0 +1,297 @@
+﻿<!doctype html> <!-- inclus dans le header, mode SSI -->
+<!-- "! & tab" : tout est ajouté automatiquement (PseudoLangage comme "p*3 & tab", vient d'Emmet) -->
+<!-- Commentaire PHP "//" pour cela sa bug, il faut des commentaires HTML "<!--" -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Gazmen Arifi">
+	<meta name="date" content="2017-10-17" scheme="YYYY-MM-DD">
+	<title>Fonctions, Raccourcies & Commandes</title> <!-- Variable pour le titre avec un delimiteur "?php echo" ou "?=". -->
+</head>
+<body>
+<code>
+<?php echo ?>
+<?=. ?>
+<h1>Fonctions, Raccourcies & Commandes</h1>
+
+<h2>00. Raccourcies</h2>
+<p>
+! & tab<br>
+a & tab<br>
+select & tab<br>
+option & tab<br>
+p*2>lorem50 & tab<br>
+p*3>lorem40 & tab<br>
+ul>li*5>{Lien $} & tab<br>
+ol>li*10>{Produit $} & tab<br>
+CTRL+MAJ+/ selectionne texte et transforme en commentaire.<br>
+&nbsp; & + nbsp + ; entité de l'espacement.<br>
+&euro; & + euro + ; entité de l'euro.<br>
+</p>
+
+<h2>01. Output</h2>
+<p>
+echo // Nécessité de délimitée la chaine avec ' ou ".<br>
+print
+</p>
+
+<h2>02. S.S.I. : Server Side Include</h2>
+<p>
+require<br>
+include<br>
+require_once<br>
+include_once<br>
+</p>
+
+<h2>03. Variable</h2>
+<p>
+var_dump($variable1, $variable2, ...); commande de débogage
+</p>
+
+<p>
+string<br>
+integer<br>
+float<br>
+boolean<br>
+array<br>
+object<br>
+null<br>
+</p>
+
+<h3>Variable globale aussi nommé scalaire</h3>
+
+<p>
+$titre = ''; // vide : EMPTY.<br>
+$name = 'John Doe'; // type caractère : STRING ; apostrophe chaine de caractère.<br>
+$age = 45; // type numérique : INTEGER, donc pas de délimiteur type apostrophe (nom) ou guillemet (valeur).<br>
+$dead = true; // type OUI ou NON ! booléenne : BOOLEAN 1 / 0, VRAI / FAUX.<br>
+$money = 55.60; // type Réel : FLOAT.<br>
+</p>
+
+<h4>Les TABLEAUX sont des VARIABLE STRUCTURÉ permettant l'utilisation de traitements et d'affichages particuliers.</h4>
+
+<p>
+$blessures = ['Cou', 'Abdomen', 'Tête']; // ARRAY (tableau) nouvelle syntaxe ; Crochet & délimiteur séparé par des virgules. VARIABLE STRUCTURÉ dont les données sont manipulable par FONCTION.<br>
+$blessures = array('Cou', 'Abdomen', 'Tête'); // ARRAY (tableau) ancienne syntaxe ; Parenthèse & délimiteur séparé par des virgules.
+</p>
+
+<h3>Nommage et conventions des variables</h3>
+
+<p>
+On déclare les variables au sommet.<br>
+Toujours précédé d'un dollar, doit évoqué ce quelle doit contenir.<br>
+Syntaxe : on précède l'identifiant du symbole $ suivi par un operateur d'affectation (=) et d'une valeur.<br>
+<br>
+Il y a des langages qui nécessite var, d'autre string name.
+</p>
+
+<h3>Peut on utiliser n'importe quel nom ?</h3>
+
+<p>
+On ne peut pas mettre d'espace, exemple : nom prénom.<br>
+On ne peut pas utiliser les INSTRUCTIONS d'un langage de programmation,<br>
+Les ACCENTS sont refusé et interdit.<br>
+L'UNDERSCORE est autorisé.<br>
+Le point est interdit,<br>
+Les chiffres peuvent être utilisé sauf pour le premier caractère d'une variable.<br>
+Espace de nom : [A-Z][a-z][0-9] (expression régulière ou rationnel) -> case sensitive, sujette à la casse.<br>
+Pas de caractère spéciaux +-*/%^ et operateur arythmique.<br>
+Pas de chiffre en première position.<br>
+Convention d'écriture: variable en anglais, en haut, nom évocateur.<br>
+Si plusieurs mots: camel case ($tauxTvaComprise).<br>
+Opercamelcase TauxTvaComprise reservé au classe underscore au constante.<br>
+</p>
+
+<h3>Indiquez si les variables sont valides</h3>
+
+<p>
+$var 1 (invalide, espace)<br>
+$var (valide, pas conseillé)<br>
+variable (invalide, pas de dollar)<br>
+$2taux (invalide, commence par un chiffre en premier)<br>
+$taux_tva_comprise (valide, mais pas conseillé, utilisé le camelCase)<br>
+$a-paye (invalide, operateur mathématique)<br>
+$élément (valide, mais vivement pas conseillé)<br>
+$PAYS (valide, mais pas conseillé, car on écrit ses variables en miniscule et les constantes en majuscule)<br>
+$first*name (invalide, operateur mathématique)
+</p>
+
+<h2>04. Variables-Fonctions</h2>
+
+<p>
+gettype($variable);<br>
+settype($variable, 'string');<br>
+settype($variable, 'integer');<br>
+settype($variable, 'array');<br>
+isset($variable);<br>
+!isset($variable);<br>
+unset($variable);<br>
+empty($variable);<br>
+!empty($variable);<br>
+exit();<br>
+</p>
+
+<p>
+is_string($variable);<br>
+is_float($variable);<br>
+is_int($variable); / is_integer($variable); : fonction alias font la même chose mais s'écrive differement.<br>
+is_bool($variable); / is_boolean($variable);<br>
+is_object($variable);<br>
+is_array($variable);<br>
+is_null($variable);<br>
+</p>
+
+<h3>Variable superglobale {environnement} car c'est un tableau</h3>
+
+<p>
+$_GET['paramètre1', "paramètre2']; pour les liens.<br>
+$_POST['paramètre'] pour les formulaires.<br> 
+$_FILE['paramètre'] pour les fichiers.<br> 
+$_SESSION variable permanente,<br>
+$_SERVER<br>
+<br>
+if(!isset($_GET['param'])) // ! = opposé=  n'existe pas. On va donc lui donner une valeur à la variable avec « = ».<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$_GET['param'] = 'value';<br>
+}<br>
+<br>
+if($_GET['param'] == 'value')<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Texte';<br>
+}<br>
+elseif($_GET['param'] == 'value');<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Texte';<br>
+}<br>
+else<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Texte';<br>
+}<br>
+</p>
+
+<h2>05. Constantes</h2>
+
+<p>
+Convention d'écriture : MAJ et underscore pour les noms de constantes.<br>
+Syntaxe define(nom constante, valeur constante).<br>
+</p>
+
+<p>
+define('DB_CLIENT', 'catalogue');<br>
+define ('USER', 'Pat');<br>
+define ('LEVEL', '10');
+</p>
+
+<h2>06. Structure Conditionnelle</h2>
+
+<p>
+if($variable >= 20)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Juniors';<br>
+}<br>
+elseif($variable >= 14)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Cadets';<br>
+}<br>
+elseif($variable >= 12)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Minimes';<br>
+}<br>
+else<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Pas de catégorie';<br>
+}<br>
+</p>
+
+<p>
+if($localite == 'Namur')<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if($age >= 20) // ne pas oublier d'écrire $ pour la variable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo 'Juniors';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elseif($age >= 14)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo 'Cadets';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;elseif($age >= 12)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo 'Minimes';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo 'Pas de catégorie';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+else<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'Vous devez résider à Namur';<br>
+}<br>
+</p>
+
+<h2>07. La boucle « for »</h2>
+
+<p>
+for(initialisation; condition d'arrêt; incrémentation) 
+</p>
+
+<p>
+for($i = 1; $i <= 20; $i++)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;echo $i;<br>
+}<br>
+</p>
+
+<h2>08. Les tableaux (array)</h2>
+<h3>Déclaration et manipulation d'un tableau indexé<br>{$variable = ['key1', 'key2', '...'];}</h3>
+<p>
+$profs = ['John Doe', 'Dominique Servais', 'Ragnar Lothbrok'];
+</p>
+<p>
+foreach($variable as $key)
+</p>
+
+<h3>Déclaration et manipulation d'un tableau associatif<br>{$variable = ['key1' => value1, 'key2' => value2, '... => ...'];}</h3>
+
+<p>
+$classe = ['Laure' => 18, 'Michael' => 19, 'Ragnar' => 7, 'Dominique' => 10];
+</p>
+
+<p>
+foreach($classe as $key => $value)
+</p>
+
+<p>
+$variable += $value
+</p>
+
+<p>
+count($variable);<br>
+sizeof($variable);
+</p>
+
+<p>
+array_sum($variable)
+</p>
+
+<p>
+Croissant : sort($variable);<br>
+Décroissant : rsort($variable);<br>
+Key Croissant : ksort($variable);<br>
+Key Décroissant : krsort($variable);<br>
+Value Croissant : asort($variable);<br>
+Value Décroissant : arsort($variable);<br>
+</p>
+
+<p>
+in_array('value', array);<br>
+!in_array('value', array);<br>
+</p>
+
+</code>
+
+</body> <!-- inclus dans le footer, mode SSI -->
+
+</html> <!-- footer -->

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>SSI</title>
+    <link rel="stylesheet" href="css/template.css">
+</head>
+<body>
+<h1>SSI (Serveur-side include)</h1>
+<fieldset>
+    <legend>L'instruction include</legend>
+    <p>L'instruction de langage include intègre et exécute le fichier spécifié en argument.</p>
+    <p>Les SSI facilitent la maintenance des sites web en permettant de conserver dans un seul fichier les parties de
+        page web qui se retrouvent à l'identique dans toutes les pages du site. Il s'agit souvent de l'en-tête et du
+        pied de page, qui contiennent des informations comme le nom du site, les coordonnées de son auteur, etc.</p>
+    <p>PHP permet l’utilisation de deux fonctions très simples et cependant très utiles qui
+        permettent la réutilisation de code. En utilisant les fonctions require() ou include(), il est possible de
+        charger des fichiers dans un script PHP. En simplifiant, on peut considérer
+        qu’à l’endroit où vous incluez le fichier, PHP recopiera celui-ci à l'identique.</p>
+    <p>Exemples</p>
+    <pre>
+                include 'includes/header.inc.php';
+	        echo '&lt;h1>Mon contenu dynamique&lt;/h1>';
+	        require 'includes/footer.inc.php';
+    </pre>
+</fieldset>
+<fieldset>
+    <legend>Exemple illustré</legend>
+        <img src="img/require.png" alt="">
+</fieldset>
+<fieldset>
+    <legend>Particularités</legend>
+    <h3>Différence entre require() et include()</h3>
+    <p>Il existe une différence importante entre les deux.  Avec <b>include</b> en cas d'erreur (nom fichier, path, erreur de script) un message de type Warning s'affiche et le reste du code est exécuté.  Avec <b>require</b> PHP lève une erreur fatale et arrête l'exécution du script</p>
+    <h3>require_once() et include_once()</h3>
+    <p>require_once() et include_once() ont la même fonction que require() et include(). La
+        seule différence est qu’elles s’assurent que le fichier que l’on essaie d’inclure ne l’a pas déjà été. Cela se révèle pratique lors de l’utilisation de fonctions ou de classes pour éviter les redéclarations qui engendrent des erreurs.</p>
+</fieldset>
+</body>
+
+</html>

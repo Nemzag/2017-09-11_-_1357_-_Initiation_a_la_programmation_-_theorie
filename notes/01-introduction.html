@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Introduction et fonctionnement de PHP</title>
+    <link rel="stylesheet" href="css/template.css">
+</head>
+<body>
+    <h1>Le processus de fonction du PHP</h1>
+    <fieldset>
+        <legend>Schéma du parcours d'une page en PHP</legend>
+        <img src="img/Modele-php-html%20(1).jpg" alt="">
+    </fieldset>
+    <fieldset>
+        <legend>Les tags d'ouverture et de fermeture</legend>
+        <p>Le début et la fin des portions de code PHP sont signalés grâce à des balises d’ouverture et de fermeture. Seul ce qui est entre ces balises (ou délimiteurs) est interprété par PHP, le reste est envoyé tel quel au navigateur.</p>
+        <p>Malgré l'existance de plusieurs variantes, il est primordial d'utiliser pour déclarer le PHP la balise <span>&lt;?php</span> et pour terminer le script PHP la balise <span>?&gt;</span> le tag de fermuture est uniquement nécessaire si le code ne contient pas du Html ou du JavaScript en dessous du script PHP</p>
+    </fieldset>
+    <fieldset>
+        <legend>Insertion de PHP dans HTML</legend>
+        <p>Le code PHP peut être directement intégré dans les fichiers HTML. Il peut figurer à
+            différents endroits de ces fichiers, tout en étant entrecoupé de code HTML.</p>
+        <p>
+            &lt;!doctype html><br>
+            &lt;html lang="fr"><br>
+            &lt;head><br>
+                &lt;meta charset="UTF-8"><br>
+                &lt;title>Les délimiteurs PHP&lt;/title><br>
+            &lt;/head><br>
+            &lt;body><br>
+            &lt;h1>PHP et le code HTML&lt;/h1><br>
+            &lt;?php<br>
+        $version = 'PHP7.2';<br>
+        echo '&lt;h2>La dernière version est '.$version.'&lt;/h2>';<br>
+            ?><br>
+            &lt;/body><br><br>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>Les commentaires</legend>
+        <p>Comme avec le langage C, les commentaires sont introduits par la séquence /* et se
+            terminent par */. Par ailleurs, PHP utilise également les signes de commentaires //, qui
+            permettent de commenter une ligne complète.  Les commentaires ne sont pas interprétés et n'apparaissent pas dans le navigateur</p>
+        <p>Vous pouvez donc profiter des commentaires pour ajouter des explications sur les parties
+            de code complexes afin d’en faciliter la relecture et la compréhension par la suite (maintenabilité du projet).</p>
+        <p>
+            &lt;?php<br>
+            /*<br>
+            Commentaires sur plusieurs lignes<br>
+            Ici la deuxième ligne<br>
+            */<br>
+            // Commentaires sur une ligne<br>
+            echo "ceci n’est pas commenté" ;<br>
+            ?>
+        </p>
+    </fieldset>
+</body>
+
+</html>
